@@ -39,7 +39,14 @@ public:
 	template <class lft_storage_t, class rgt_storage_t>
 	friend Number <NumberData> operator * (const Number <lft_storage_t>& lft, const Number <rgt_storage_t>& rgt);	
 
-	
+	template <class lft_storage_t, class rgt_storage_t>
+	friend Number <NumberData> operator / (const Number <lft_storage_t>& lft, const Number <rgt_storage_t>& rgt);	
+
+	template <class lft_storage_t>
+	friend Number <NumberData> operator >> (const Number <lft_storage_t>& lft, int shift);
+
+	template <class lft_storage_t>
+	friend Number <NumberData> operator << (const Number <lft_storage_t>& lft, int shift);	
 
 protected:
 	storage_t m_storage;
@@ -84,6 +91,8 @@ Number <NumberData> InitNumber ()
 	NumberData data;
 	return Number <NumberData> (data);
 }
+
+//----------------
 
 //----------------
 
@@ -275,6 +284,61 @@ Number <NumberData> operator * (const Number <lft_storage_t>& lft, const Number 
 		result = result + InitNumber (static_cast <unsigned long long> (lft[lft_index]*rgt[rgt_index] * pow (10, rgt_index+lft_index)));
 
 	return result;
+}
+
+//----------------
+
+template <class lft_storage_t, class rgt_storage_t>
+Number <NumberData> operator / (const Number <lft_storage_t>& lft, const Number <rgt_storage_t>& rgt)
+{
+	Number <NumberDataView> dividing = InitNumberView (lft);
+	Number <NumberDataView> divider  = InitNumberView (rgt);
+	Number <NumberData> result = InitNumber ();
+
+	if (divider == InitNumber ("0")) throw std::overflow_error ("division by zero");
+					  
+	size_t N = Normalize (divider) + 1;
+
+	while (N)
+	{
+		result = result << 1;
+
+		auto diff = dividing - divider;
+		if (dividing >= divider)
+		{
+			result[result.size () - 1] = 1;
+			dividing = diff;
+		}
+	
+		divider = divider >> 1;
+	
+		N--;
+	}
+
+	return result;
+}
+
+//----------------
+
+template <class lft_storage_t>
+Number <NumberData> operator >> (const Number <lft_storage_t>& lft, int shift)
+{
+	Number <NumberData> result = InitNumber ();
+
+	size_t size = lft.size ();
+	for (size_t i = 0; i < size || i < NumberData::DataSize; i++)
+	{
+		if (i < NumberData::DataSize)
+			result[i] = (i+shift >= 0 && i+shift < size)? lft[i+shift]: 0;
+	}
+
+	return result;
+}
+
+template <class lft_storage_t>
+Number <NumberData> operator << (const Number <lft_storage_t>& lft, int shift)
+{
+	return operator >> (lft, -shift);
 }
 
 //----------------
