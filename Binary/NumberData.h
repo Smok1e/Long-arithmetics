@@ -130,7 +130,6 @@ NumberData& NumberData::operator = (const NumberData& that)
 		return *this;
 
 	std::memcpy (m_data, that.m_data, NumberData::DataSize);
-
 	return *this;
 }
 

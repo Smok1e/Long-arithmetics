@@ -13,36 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\backup">
-      <UniqueIdentifier>{387d4524-bb2c-42c9-a009-1ef47969b306}</UniqueIdentifier>
+    <Filter Include="Header Files\Binary">
+      <UniqueIdentifier>{22e43078-6d9f-47b7-88ae-d3f0accc9ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Decimal">
+      <UniqueIdentifier>{bf0b279f-b68d-4a9b-9b0a-d48e97f65990}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="backup\Source.cpp">
-      <Filter>Header Files\backup</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Number.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Decimal\NumberData.h">
+      <Filter>Header Files\Decimal</Filter>
     </ClInclude>
-    <ClInclude Include="NumberData.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Decimal\Number.h">
+      <Filter>Header Files\Decimal</Filter>
     </ClInclude>
-    <ClInclude Include="NumberDataView.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Binary\Number.h">
+      <Filter>Header Files\Binary</Filter>
     </ClInclude>
-    <ClInclude Include="NumberTest.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Binary\NumberData.h">
+      <Filter>Header Files\Binary</Filter>
     </ClInclude>
-    <ClInclude Include="backup\Number.h">
-      <Filter>Header Files\backup</Filter>
+    <ClInclude Include="Binary\NumberDataView.h">
+      <Filter>Header Files\Binary</Filter>
     </ClInclude>
-    <ClInclude Include="backup\NumberTest.h">
-      <Filter>Header Files\backup</Filter>
+    <ClInclude Include="Binary\NumberTest.h">
+      <Filter>Header Files\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Decimal\NumberDataView.h">
+      <Filter>Header Files\Decimal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

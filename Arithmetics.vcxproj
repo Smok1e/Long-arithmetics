@@ -139,25 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="backup\Source.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="backup\Number.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="backup\NumberTest.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="Number.h" />
-    <ClInclude Include="NumberData.h" />
-    <ClInclude Include="NumberDataView.h" />
-    <ClInclude Include="NumberTest.h" />
+    <ClInclude Include="Binary\Number.h" />
+    <ClInclude Include="Binary\NumberData.h" />
+    <ClInclude Include="Binary\NumberDataView.h" />
+    <ClInclude Include="Binary\NumberTest.h" />
+    <ClInclude Include="Decimal\Number.h" />
+    <ClInclude Include="Decimal\NumberData.h" />
+    <ClInclude Include="Decimal\NumberDataView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
